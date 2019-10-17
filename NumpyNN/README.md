@@ -1,26 +1,50 @@
-## Multilayer Neural Network Binary Classifier
+# Multilayer Neural Network Binary Classifier
 
 This library is written for educational purposes only.
 The architecture of neural network is inspired by Andrew Ng course on deep learning.
-
-**class MultiLayerNN**(  
-    dimensions=[1],  
-    cost_func_name='logloss',  
-    activation_functions=['sigmoid'],  
-    learning_rate=0.001,  
-    n_iter=20000,  
-    verbose=True   
-)  
 This multi layer network implementation supports:  
--any number of layers  
--any layer size  
--any activation functions ('relu', 'sigmoid', 'tanh', 'leaky_relu') for each layer  
+  * any number of layers  
+  * any layer size  
+  * any activation functions ('relu', 'sigmoid', 'tanh', 'leaky_relu') for each layer  
 
 It initilizes weights using He initialization (He et al. 2015)  
 
-It doesn't support regularization yet, but  will support in nearest future.  
+It doesn't support regularization yet, but  will support in nearest future. 
+##class MultiLayerNN 
+(  
+&nbsp;&nbsp;&nbsp;&nbsp;dimensions=[1],  
+&nbsp;&nbsp;&nbsp;&nbsp;cost_func_name='logloss',  
+&nbsp;&nbsp;&nbsp;&nbsp;activation_functions=['sigmoid'],  
+&nbsp;&nbsp;&nbsp;&nbsp;learning_rate=0.001,  
+&nbsp;&nbsp;&nbsp;&nbsp;n_iter=20000,  
+&nbsp;&nbsp;&nbsp;&nbsp;verbose=True   
+)  
+ 
 
-Example of use for solving binary classification problem on iris dataset.  
+### Parameters:
+  * **dimentions**: list/tuple. For example [2, 3, 1] means, that first
+  layer consists of 2 neurons, while the second consists of 3 neurons and output layer is 1 neuron.
+  * **cost_func_name**: string, cost function used (currently only 'logloss' is supported)
+  * **activation_functions**: list/tuple/string, if list or tuple, then represents separate function for each layer, otherwise string 
+  all layers use the same activation function
+  * **learning_rate**: float, learning rate for gradient descent
+  * **n_iter**: int, max number of iterations for gradient descent
+  * **verbose**: bool
+
+### Attributes:
+  * **params**: dict, W and b matrices of layers
+  * **cache**: dict, a's (activations) and z's (linear component) of layers
+  * **grads**: dict, gradients of layers
+  * **dept**: int, depth of NN
+  * **cost**: float, cost 
+
+### Methods:
+  * **fit(self, X, Y)**: build and train NN
+  * **predict(self, X)**: return prediction for sample X
+  * **predict_proba**(self, X): predict class probabilities on the given data and lables
+  * **score(self, X, Y)**: return the mean accuracy of the given data and labels
+
+### Example of use for solving binary problem on iris dataset.  
 
 ```python
 from NumpyNN import MultiLayerNN

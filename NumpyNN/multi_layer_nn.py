@@ -20,7 +20,11 @@ class MultiLayerNN(ClassifierMixin):
         self._cost_functions = COST_FUNCTIONS
         self.dimensions = dimensions
         self.cost_func_name = cost_func_name
-        self.activation_functions = activation_functions
+        self.activation_functions = (
+            activation_functions
+            if hasattr(activation_functions, '__iter__')
+            else [activation_functions] * len(dimensions)
+        )
         self.learning_rate = learning_rate
         self.n_iter = n_iter
         self.depth = len(self.dimensions)
