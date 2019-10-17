@@ -10,7 +10,7 @@ This multi layer network implementation supports:
 It initilizes weights using He initialization (He et al. 2015)  
 
 It doesn't support regularization yet, but  will support in nearest future. 
-##class MultiLayerNN 
+## class MultiLayerNN 
 (  
 &nbsp;&nbsp;&nbsp;&nbsp;dimensions=[1],  
 &nbsp;&nbsp;&nbsp;&nbsp;cost_func_name='logloss',  
@@ -26,7 +26,7 @@ It doesn't support regularization yet, but  will support in nearest future.
   layer consists of 2 neurons, while the second consists of 3 neurons and output layer is 1 neuron.
   * **cost_func_name**: string, cost function used (currently only 'logloss' is supported)
   * **activation_functions**: list/tuple/string, if list or tuple, then represents separate function for each layer, otherwise string 
-  all layers use the same activation function
+  if all layers use the same activation function
   * **learning_rate**: float, learning rate for gradient descent
   * **n_iter**: int, max number of iterations for gradient descent
   * **verbose**: bool
@@ -39,7 +39,7 @@ It doesn't support regularization yet, but  will support in nearest future.
   * **cost**: float, cost 
 
 ### Methods:
-  * **fit(self, X, Y)**: build and train NN
+  * **fit(self, X, y)**: build and train NN
   * **predict(self, X)**: return prediction for sample X
   * **predict_proba**(self, X): predict class probabilities on the given data and lables
   * **score(self, X, Y)**: return the mean accuracy of the given data and labels
@@ -77,7 +77,7 @@ nn = MultiLayerNN(
 nn.fit(X_train, y_train)
 y_pred = nn.predict(X_test)
 
-print(nn.score(X_test, y_test))
+print('Test accuracy: {}'.format(nn.score(X_test, y_test)))
 ```
 ```bash
 iter :1000, cost: 38.94155952212185
@@ -100,5 +100,5 @@ iter :17000, cost: 7.3062872650019175
 iter :18000, cost: 6.799039660432962
 iter :19000, cost: 6.386827466017606
 iter :20000, cost: 6.042268810876664
-0.9555555555555556
+Test accuracy: 0.9555555555555556
 ```
