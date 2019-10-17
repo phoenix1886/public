@@ -1,6 +1,7 @@
 # Multilayer Neural Network Binary Classifier
 
 This library is written for educational purposes only.
+**Supports Scikit-learn api.**
 The architecture of neural network is inspired by Andrew Ng course on deep learning.
 This multi layer network implementation supports:  
   * any number of layers  
