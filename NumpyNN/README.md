@@ -1,26 +1,26 @@
-##Multilayer Neural Network Binary Classifier
+## Multilayer Neural Network Binary Classifier
 
 This library is written for educational purposes only.
 The architecture of neural network is inspired by Andrew Ng course on deep learning.
 
-class MultiLayerNN(
-    dimensions=[1],
-    cost_func_name='logloss',
-    activation_functions=['sigmoid'],
-    learning_rate=0.001,
-    n_iter=20000,
-    verbose=True 
-)
-This multi layer network implementation supports:
--any number of layers
--any layer size
--any activation functions ('relu', 'sigmoid', 'tanh', 'leaky_relu') for each layer
+**class MultiLayerNN**(  
+    dimensions=[1],  
+    cost_func_name='logloss',  
+    activation_functions=['sigmoid'],  
+    learning_rate=0.001,  
+    n_iter=20000,  
+    verbose=True   
+)  
+This multi layer network implementation supports:  
+-any number of layers  
+-any layer size  
+-any activation functions ('relu', 'sigmoid', 'tanh', 'leaky_relu') for each layer  
 
-It initilizes weights using He initialization (He et al. 2015)
+It initilizes weights using He initialization (He et al. 2015)  
 
-It doesn't support regularization yet, but  will support in nearest future.
+It doesn't support regularization yet, but  will support in nearest future.  
 
-Example of use for solving binary classification problem on iris dataset.
+Example of use for solving binary classification problem on iris dataset.  
 
 ```python
 from NumpyNN import MultiLayerNN
