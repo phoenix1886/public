@@ -23,7 +23,6 @@ class MultiLayerNN(ClassifierMixin):
         self.activation_functions = activation_functions
         self.learning_rate = learning_rate
         self.n_iter = n_iter
-
         self.depth = len(self.dimensions)
         self._cost_func = self._cost_functions[self.cost_func_name]
         self.params = {}
@@ -64,7 +63,6 @@ class MultiLayerNN(ClassifierMixin):
             activation_func_name = self.activation_functions[i]
             a = self._functions_map[activation_func_name]['func'](z)
             cache['a' + str(layer_index)] = a
-            layer_index += 1
 
         return a, cache
 
@@ -156,7 +154,6 @@ class MultiLayerNN(ClassifierMixin):
             The class probabilities of the input samples.
         """
         a, _ = self.__calc_a(X.T)
-        print(a)
         return np.vstack((a, 1-a)).T
 
 
